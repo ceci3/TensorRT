@@ -1105,7 +1105,7 @@ public:
         params.h = interface->mNumHeads;
         params.s = S;
         params.d = interface->mHeadSize;
-        params.use_int8_scale_max = true;
+        params.use_int8_scale_max = false;
         params.packed_mask_stride_in_bytes = xmmas_m * threads_per_cta * sizeof(uint32_t);
         params.qkv_stride_in_bytes = 3 * interface->mNumHeads * interface->mHeadSize * sizeof(int8_t);
         params.o_stride_in_bytes = interface->mNumHeads * interface->mHeadSize * sizeof(int8_t);
@@ -1133,7 +1133,7 @@ public:
         // dummy input in V2/V3 because now we use cu_seqlens
         params.packed_mask_ptr = nullptr;
 
-        params.use_int8_scale_max = true;
+        params.use_int8_scale_max = false;
 
         params.o_ptr = output;
 
