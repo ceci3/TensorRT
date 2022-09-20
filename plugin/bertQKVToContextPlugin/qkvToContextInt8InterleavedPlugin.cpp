@@ -273,7 +273,7 @@ int QKVToContextInterleavedPlugin::enqueue(const PluginTensorDesc* inputDesc, co
     params.qkv_stride_in_bytes = total;
     params.o_stride_in_bytes = total;
 
-    params.use_int8_scale_max = true;
+    params.use_int8_scale_max = false; //true;
     params.enable_i2f_trick
         = -double(1 << 22) * double(scaleBmm2) <= -128.F && double(1 << 22) * double(scaleBmm2) >= 127.F;
 
